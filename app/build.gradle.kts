@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.kotlin.ksp)
 
     kotlin("kapt")
+    alias(libs.plugins.hiltAndroid)
 }
 
 android {
@@ -48,6 +49,8 @@ dependencies {
     implementation(libs.androidx.work.runtime.ktx)
     implementation(libs.androidx.runtime.android)
     implementation(libs.androidx.material3.android)
+    implementation(libs.androidx.hilt.compiler)
+    implementation(libs.com.google.dagger.hilt.android.gradle.plugin)
     ksp(libs.androidx.room.compiler)
     implementation(libs.androidx.room.runtime)
     implementation(libs.androidx.room.ktx)

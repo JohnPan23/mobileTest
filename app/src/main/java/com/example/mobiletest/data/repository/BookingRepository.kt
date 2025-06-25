@@ -15,6 +15,11 @@ class BookingRepository @Inject constructor(
     // 数据过期时间5分钟
     private val DATA_EXPIRY_TIME = 5 * 60 * 1000L
 
+    // 添加获取本地数据的方法
+    suspend fun getLocalBookingData(): BookingEntity? {
+        return bookingDao.getBookingData()
+    }
+
     suspend fun getBookingData(): BookingResponse {
         // 1. 先尝试从本地获取
         val localData = bookingDao.getBookingData()
